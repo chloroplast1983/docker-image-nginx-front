@@ -178,8 +178,6 @@ log_format  main   '[$http_x_request_id]:$remote_addr|$remote_user|$time_local|$
     
 ### 在响应头中添加`X-REQUEST-ID`
 
-`php`中会呈现为`HTTP_X_REQUEST_ID`
-
 在`default.conf`中添加响应头的返回.
 
 `add_header     X-REQUEST-ID $http_x_request_id;`
@@ -190,11 +188,9 @@ log_format  main   '[$http_x_request_id]:$remote_addr|$remote_user|$time_local|$
 curl -X GET -H "X-Request-ID:bbb" 127.0.0.1/users
 ```
 
-### 传递`phpfpm`是传递头信息`HTTP_X_REQUEST_ID`
+### 传递`phpfpm`是传递头信息`X_REQUEST_ID`
 
-`fastcgi_param  HTTP_X_REQUEST_ID $request_id;`
-
-## 还未做完
+`fastcgi_param  X_REQUEST_ID $request_id;`
 
 ### 时区修改
 
@@ -202,6 +198,8 @@ curl -X GET -H "X-Request-ID:bbb" 127.0.0.1/users
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ```
+
+## 还未做完
 
 ### fastCGI参数优化
 
