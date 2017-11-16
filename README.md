@@ -199,6 +199,14 @@ ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ```
 
+### 404 和 500 页面跳转
+
+* `fastcgi_intercept_errors on`,启用: Determines whether FastCGI server responses with codes greater than or equal to 300 should be passed to a client or be intercepted and redirected to nginx for processing with the error_page directive. 
+* `proxy_intercept_errors`因为现在使用的是`fastcgi`,所以暂时未启用该参数,未启用: Determines whether proxied responses with codes greater than or equal to 300 should be passed to a client or be intercepted and redirected to nginx for processing with the error_page directive. 
+
+* `error_page 500 502 503 504  /server/500.html;`: 500,502,503,504错误跳转到静态页面`500.html`.
+* `error_page 404  /server/404.html;`: 404错误跳转到`404.html`静态页面.
+
 ## 还未做完
 
 ### fastCGI参数优化
