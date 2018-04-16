@@ -6,11 +6,23 @@
 
 默认前端服务专用`nginx`配置. 主要核心针对互联网接口调用. 负责生成`token`, 用于记录日之链.
 
+## 关于https
+
+[关于https](./Docs/关于https.md)的一些配置项说明.
+
 ## 版本
 
 * [1.0](./Docs/1.0.md)
 	* [1.1](./Docs/1.1.md)
 	* [1.2](./Docs/1.2.md)
+
+#### 浏览器如何处理
+
+你的网站第一次通过HTTPS请求, 服务器响应`Strict-Transport-Security`头, 浏览器记录下这些信息, 然后后面尝试访问这个网站的请求都会自动把HTTP替换为HTTPS.
+
+当`HSTS头`设置的过期时间到了, 后面通过`HTTP`的访问恢复到正常模式, 不会再自动跳转到HTTPS.
+
+每次浏览器接收到`Strict-Transport-Security`头, 它都会更新这个网站的过期时间, 所以网站可以刷新这些信息, 防止过期发生.
 
 ## todolist
 
