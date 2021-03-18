@@ -28,6 +28,10 @@
 
 每次浏览器接收到`Strict-Transport-Security`头, 它都会更新这个网站的过期时间, 所以网站可以刷新这些信息, 防止过期发生.
 
+#### 宜昌版本
+
+因为配合抖音落地页，添加头`X-Frame-Options: Allow-From https://ad.oceanengine.com`
+
 ## todolist
 
 ### fastCGI参数优化
